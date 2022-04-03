@@ -1,0 +1,141 @@
+<div class="container">
+  <div *ngIf="showSucessMessage">
+    <h3 class="sucess">Student detail updated successfully !</h3>
+  </div>
+  <section class="documentation">
+    <section id="firstEx">
+      <section>
+        <div class="card my-5">
+          <h3
+            class="card-header text-center font-weight-bold text-uppercase py-4"
+          >
+            Student Details for {{grade}}
+          </h3>
+          <div class="card-body">
+            <div id="table" class="table-editable">
+              <table
+                class="table table-bordered table-responsive-md table-striped text-center"
+              >
+                <tr>
+                  <th class="text-center">Student Name</th>
+                  <th class="text-center">Age</th>
+                  <th class="text-center">Email</th>
+                  <th class="text-center">English</th>
+                  <th class="text-center">Math</th>
+                  <th class="text-center">Science</th>
+                  <th class="text-center">Social Studies</th>
+                  <th class="text-center">Action</th>
+                </tr>
+                <tr *ngFor="let student of studentList; let rowIndex = index" class="table-row">
+                  <td
+                    class="pt-3-half data"
+                    #name
+                    (blur)="
+                      student.name = name.innerText;
+                      validateStudentData('name', name.innerText, rowIndex)
+                    "
+                    contenteditable="true"
+                  >
+                    {{ student.name }}
+                  </td>
+                  <td
+                    class="pt-3-half data"
+                    #age
+                    (blur)="
+                      student.age = age.innerText;
+                      validateStudentData('age', age.innerText, rowIndex)
+                    "
+                    contenteditable="true"
+                  >
+                    {{ student.age }}
+                  </td>
+                  <td
+                    class="pt-3-half data"
+                    #email
+                    (blur)="
+                      student.email = email.innerText;
+                      validateStudentData('email', email.innerText, rowIndex)
+                    "
+                    contenteditable="true"
+                  >
+                    {{ student.email }}
+                  </td>
+                  <td
+                    class="pt-3-half data"
+                    #english
+                    (blur)="
+                      student.English = english.innerText;
+                      validateStudentData('English', english.innerText, rowIndex)
+                    "
+                    contenteditable="true"
+                  >
+                    {{ student.English }}
+                  </td>
+                  <td
+                    class="pt-3-half data"
+                    #math
+                    (blur)="
+                      student.Maths = math.innerText;
+                      validateStudentData('Maths', math.innerText, rowIndex)
+                    "
+                    contenteditable="true"
+                  >
+                    {{ student.Maths }}
+                  </td>
+                  <td
+                    class="pt-3-half data"
+                    #science
+                    (blur)="
+                      student.Science = science.innerText;
+                      validateStudentData('Science', science.innerText, rowIndex)
+                    "
+                    contenteditable="true"
+                  >
+                    {{ student.Science }}
+                  </td>
+                  <td
+                    class="pt-3-half data"
+                    #social_studies
+                    (blur)="
+                      student.Social_Studies = social_studies.innerText;
+                      validateStudentData(
+                        'Social_Studies',
+                        social_studies.innerText,
+                        rowIndex
+                      )
+                    "
+                    contenteditable="true"
+                  >
+                    {{ student.Social_Studies }}
+                  </td>
+                  <td class="pt-3-half">
+                    <button
+                      type="button"
+                      mdbBtn
+                      color="light"
+                      [disabled]="!student.isEdited"
+                      mdbWavesEffect
+                      (click)="onCancel(rowIndex)"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="button"
+                      mdbBtn
+                      color="primary"
+                      mdbWavesEffect
+                      [disabled]="!student.isEdited"
+                      (click)="OnSave(rowIndex)"
+                    >
+                      Save
+                    </button>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </section>
+</div>

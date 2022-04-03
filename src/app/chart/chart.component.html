@@ -1,0 +1,19 @@
+<div class="container heading">
+  <h3>% of students passed in 2018-2019 session</h3>
+  <div class="d-flex justify-content-center">
+    <div>
+      <ngx-charts-pie-chart
+        [view]="view"
+        [scheme]="colorScheme"
+        [results]="data"
+        [gradient]="gradient"
+        [legend]="showLegend"
+        [legendPosition]="legendPosition"
+        [labels]="showLabels"
+        [doughnut]="isDoughnut"
+        (select)="onSelect($event)"
+      >
+      </ngx-charts-pie-chart>
+    </div>
+  </div>
+</div>
